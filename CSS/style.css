@@ -1,0 +1,59 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; user-select: none; }
+body { overflow: hidden; background: #05050a; color: #fff; }
+canvas { display: block; width: 100vw; height: 100vh; }
+
+/* PANTALLA DE CARGA */
+#pantallaCarga {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, #0a0f25, #1a2450);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    z-index: 9999; transition: opacity 0.8s;
+}
+#pantallaCarga h1 { font-size: 4.5rem; letter-spacing: 4px; color: #00ccff; text-shadow: 0 0 30px #00ccff; margin-bottom: 40px; }
+.barraCarga { width: 450px; height: 18px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; border: 2px solid #00ccff; }
+#progresoCarga { height: 100%; width: 0%; background: linear-gradient(90deg, #00ccff, #ff00cc); transition: width 0.3s; }
+#textoCarga { margin-top: 20px; color: #aaddff; font-size: 1.1rem; }
+
+/* INTERFAZ GENERAL */
+.oculto { display: none !important; }
+.menu {
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: rgba(8, 15, 40, 0.95); border: 3px solid #0099ff; border-radius: 15px;
+    padding: 50px; text-align: center; box-shadow: 0 0 50px rgba(0,153,255,0.4);
+    min-width: 400px; z-index: 1000;
+}
+.menu h2 { font-size: 2.2rem; color: #00ccff; margin-bottom: 30px; border-bottom: 2px solid #0066cc; padding-bottom: 15px; }
+.btnPrincipal {
+    display: block; width: 100%; padding: 15px; margin: 12px 0;
+    background: linear-gradient(180deg, #003377, #002255); border: 2px solid #0099ff;
+    color: #fff; font-size: 1.2rem; border-radius: 8px; cursor: pointer;
+    transition: all 0.2s;
+}
+.btnPrincipal:hover { background: #0055aa; transform: scale(1.03); box-shadow: 0 0 20px #0099ff; }
+
+/* HUD */
+#hud { position: fixed; top: 0; left: 0; width: 100%; padding: 20px; pointer-events: none; z-index: 500; }
+.velocimetro { position: absolute; bottom: 40px; right: 40px; font-size: 3.5rem; font-weight: bold; color: #ffcc00; text-shadow: 0 0 15px #ffcc00; }
+.tacometro { position: absolute; bottom: 100px; right: 40px; font-size: 1.5rem; color: #ff6666; }
+.barraNitro { position: absolute; bottom: 40px; left: 40px; width: 220px; height: 20px; background: rgba(0,0,0,0.6); border: 2px solid #ff00ff; border-radius: 10px; overflow: hidden; }
+#nivelNitro { height: 100%; width: 100%; background: linear-gradient(90deg, #ff00cc, #ff6600); }
+.minimapa { position: absolute; top: 20px; right: 20px; width: 180px; height: 180px; background: rgba(0,0,0,0.7); border: 2px solid #00ccff; border-radius: 50%; }
+.datosJugador { position: absolute; top: 20px; left: 20px; font-size: 1.4rem; font-weight: bold; color: #00ff88; }
+.fps { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); font-size: 1rem; color: #aaa; }
+
+/* CONTROLES TÁCTILES */
+#controlesMovil { position: fixed; bottom: 20px; left: 0; width: 100%; padding: 0 20px; display: flex; justify-content: space-between; align-items: flex-end; pointer-events: none; z-index: 600; }
+.joystick { width: 140px; height: 140px; background: rgba(255,255,255,0.15); border: 3px solid rgba(255,255,255,0.3); border-radius: 50%; position: relative; pointer-events: auto; }
+.btnMovil { width: 75px; height: 75px; border-radius: 50%; border: 3px solid #fff; background: rgba(0,150,255,0.4); color: #fff; font-size: 1.8rem; cursor: pointer; pointer-events: auto; margin: 8px; }
+.btnMovil:active { transform: scale(0.9); background: rgba(0,200,255,0.7); }
+.nitro { background: rgba(255,0,200,0.4); border-color: #ff00cc; }
+.camara { background: rgba(0,255,150,0.4); border-color: #00ff99; }
+
+@media (max-width: 768px) {
+    #pantallaCarga h1 { font-size: 2.5rem; }
+    .barraCarga { width: 85%; }
+    .menu { width: 90%; padding: 25px; min-width: auto; }
+    .velocimetro { font-size: 2.5rem; right: 20px; bottom: 120px; }
+    .barraNitro { left: 20px; bottom: 120px; width: 150px; }
+}
+
