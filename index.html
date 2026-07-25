@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ANTIGRAVITY - Carreras 3D</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Librerías CDN (no necesitas descargarlas) -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cannon-es@0.20.0/dist/cannon-es.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+</head>
+<body>
+    <!-- PANTALLA DE CARGA -->
+    <div id="pantallaCarga">
+        <h1>ANTIGRAVITY</h1>
+        <div class="barraCarga"><div id="progresoCarga"></div></div>
+        <p id="textoCarga">Cargando recursos...</p>
+    </div>
+
+    <!-- INTERFAZ PRINCIPAL -->
+    <div id="interfaz" class="oculto">
+        <div id="menuPrincipal" class="menu">
+            <h2>🏁 MENÚ PRINCIPAL</h2>
+            <button class="btnPrincipal" onclick="iniciarMundoLibre()">🌍 Mundo Libre</button>
+            <button class="btnPrincipal" onclick="abrirSeleccionCoches()">🚗 Seleccionar Auto</button>
+            <button class="btnPrincipal" onclick="abrirGaraje()">🔧 Garaje</button>
+            <button class="btnPrincipal" onclick="abrirTienda()">🛒 Tienda</button>
+            <button class="btnPrincipal" onclick="abrirAjustes()">⚙️ Ajustes</button>
+            <button class="btnPrincipal" onclick="abrirPerfil()">👤 Perfil</button>
+        </div>
+        <div id="hud" class="oculto">
+            <div class="velocimetro"><span id="velocidad">0</span> km/h</div>
+            <div class="tacometro"><span id="rpm">0</span> RPM</div>
+            <div class="barraNitro"><div id="nivelNitro"></div></div>
+            <div class="minimapa" id="minimapa"></div>
+            <div class="datosJugador">$<span id="dinero">50000</span></div>
+            <div class="fps">FPS: <span id="valorFPS">60</span></div>
+        </div>
+        <div id="controlesMovil" class="oculto">
+            <div class="joystick" id="joystick"></div>
+            <button class="btnMovil acelerar" id="btnAcelerar">⬆️</button>
+            <button class="btnMovil freno" id="btnFrenar">⬇️</button>
+            <button class="btnMovil nitro" id="btnNitro">⚡</button>
+            <button class="btnMovil camara" id="btnCamara">📷</button>
+        </div>
+    </div>
+
+    <!-- ARCHIVOS DEL JUEGO -->
+    <script src="utils.js"></script>
+    <script src="settings.js"></script>
+    <script src="save.js"></script>
+    <script src="physics.js"></script>
+    <script src="sound.js"></script>
+    <script src="car.js"></script>
+    <script src="player.js"></script>
+    <script src="camera.js"></script>
+    <script src="map.js"></script>
+    <script src="nitro.js"></script>
+    <script src="drift.js"></script>
+    <script src="traffic.js"></script>
+    <script src="ai.js"></script>
+    <script src="garage.js"></script>
+    <script src="shop.js"></script>
+    <script src="ui.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
